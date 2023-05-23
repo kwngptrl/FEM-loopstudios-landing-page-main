@@ -1,0 +1,1 @@
+added some px measurements in style-guide.md
