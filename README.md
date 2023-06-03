@@ -16,7 +16,6 @@ This is a solution to the [Loopstudios landing page challenge on Frontend Mentor
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -39,7 +38,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution URL here](https://github.com/kwngptrl/FEM-loopstudios-landing-page-main)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live site URL here](https://kwngptrl.github.io/FEM-loopstudios-landing-page-main/)
 
 ## My process
 
@@ -120,6 +119,8 @@ So to experiment, I decided to comment out the part in the HTML where it loads t
 ```
 
 ...and it still shows `overflow` in Firefox! For the javascript code, there was not much to do except to comment out some lines where a certain feature was not being used.
+
+After thinking about it for a while, I did notice that some of the overflow warnings were blinking out when the element(s) that had them were visible in the window. If they've scrolled off up or down, and weren't visible anymore then the overflow warning would come back again. Is this how it should be?
 
 ### Useful resources
 
