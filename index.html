@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
   <title>Frontend Mentor | Loopstudios landing page</title>
-  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="style.css">
   <script src="index.js" defer></script>
   
 </head>
@@ -17,7 +17,7 @@
     <div class="container-hero-nav">
       <div class="navbar transparent">
         <header>
-          <img src="./images/logo.svg" alt="" srcset="" class="logo">
+          <a href="./index.html"><img src="./images/logo.svg" alt="Go to Loopstudios homepage" class="logo"></a>
           <h1 class="sr-only">Loopstudios</h1>
         </header>
         <nav class="nav-items">
@@ -34,11 +34,10 @@
       </div>
       <picture>
         <source media="(min-width: 768px)" srcset="./images/desktop/image-hero.jpg">
-          <img src="./images/mobile/image-hero.jpg" alt="" class="hero-image"></img>
-        </source>
+        <img src="./images/mobile/image-hero.jpg" alt="" class="hero-image">
       </picture>
-      <div class="hero-text--container">
-        <p class="hero-text">Immersive experiences that deliver</p>
+      <div class="hero-text--container mask">
+        <h2 class="hero-text">Immersive experiences that deliver</h2>
       </div>
     </div>
     
@@ -46,8 +45,7 @@
       <article class="description">
         <picture>
           <source media="(min-width: 768px)" srcset="./images/desktop/image-interactive.jpg">
-            <img src="./images/mobile/image-interactive.jpg" alt="" class="hero-image"></img>
-          </source>
+          <img src="./images/mobile/image-interactive.jpg" alt="" class="desc-image">
         </picture>
         <div class="description-text-block">
           <h2>The leader in interactive VR</h2>
@@ -58,81 +56,89 @@
         </div>
       </article>
       
-      <article class="image-tile">  
+     <article class="image-tile">  
         <h2>Our creations</h2>
         <a href="#" class="see-all">See all</a>
         <div class="loopstudios-creations">
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-deep-earth.jpg">
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-deep-earth.jpg">
                 <img src="./images/mobile/image-deep-earth.jpg" alt="" class="image-actual">
-              </source>
-              <span class="title">Deep earth</span>
-            </picture>
-          </a>
-          <a href="#">  
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-night-arcade.jpg">
-                <img src="./images/mobile/image-night-arcade.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">Night arcade</span>
-            </picture>
+              </picture>
+              <figcaption class="project-title">Deep earth</figcaption>
+            </figure>
           </a>
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-soccer-team.jpg">
-                <img src="./images/mobile/image-soccer-team.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">Soccer team VR</span>
-            </picture>
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-night-arcade.jpg">
+                <img src="./images/mobile/image-night-arcade.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">Night arcade</figcaption>
+            </figure>  
           </a>
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-grid.jpg">
-                <img src="./images/mobile/image-grid.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">The<br>grid</span>
-            </picture>
-          </a>
-          <a href="#">  
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-from-above.jpg">
-                <img src="./images/mobile/image-from-above.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">From up above VR</span>
-            </picture>
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-soccer-team.jpg">
+                <img src="./images/mobile/image-soccer-team.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">Soccer team VR</figcaption>
+            </figure>
           </a>
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-pocket-borealis.jpg">
-                <img src="./images/mobile/image-pocket-borealis.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">Pocket borealis</span>
-            </picture>
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-grid.jpg">
+                <img src="./images/mobile/image-grid.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">The<br>grid</figcaption>
+            </figure>
           </a>
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-curiosity.jpg">
-                <img src="./images/mobile/image-curiosity.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">The curiosity</span>
-            </picture>
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-from-above.jpg">
+                <img src="./images/mobile/image-from-above.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">From up above VR</figcaption>
+            </figure>  
           </a>
           <a href="#">
-            <picture>
-              <source media="(min-width: 768px)" srcset="./images/desktop/image-fisheye.jpg">
-                <img src="./images/mobile/image-fisheye.jpg" alt="" class="image-actual"></img>
-              </source>
-              <span class="title">Make it fisheye</span>
-            </picture>
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-pocket-borealis.jpg">
+                <img src="./images/mobile/image-pocket-borealis.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">Pocket borealis</figcaption>
+            </figure>
           </a>
-        </div>
+          <a href="#">
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-curiosity.jpg">
+                <img src="./images/mobile/image-curiosity.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">The curiosity</figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure>
+              <picture>
+                <source media="(min-width: 768px)" srcset="./images/desktop/image-fisheye.jpg">
+                <img src="./images/mobile/image-fisheye.jpg" alt="" class="image-actual">
+              </picture>
+              <figcaption class="project-title">Make it fisheye</figcaption>
+            </figure>
+          </a>
+        </div>  <!-- closes 'loopstudios-creations' -->
     </article>
     </main>
 
     <footer>
       <div class="footer-menu-container">
-        <img src="./images/logo.svg" alt="" srcset="" class="logo">
+        <a href="/"><img src="./images/logo.svg" alt="Go to Loopstudios homepage" class="logo"></a>
         <ul class="footer-menu">
           <li><a href="#">About</a></li>
           <li><a href="#">Careers</a></li>
@@ -147,11 +153,11 @@
           <li><a href="#"><img src="./images/icon-instagram.svg" alt="Instagram"></a></li>
         </ul>
         <p class="copyright">© 2021 Loopstudios. All rights reserved.</p>
-      </div>  <!-- closes the 'proper' footer  --> 
-      <p class="attribution">
+      </div>  <!-- closes the 'footer-menu-container' footer  --> 
+      <div class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
         Coded by <a href="https://www.frontendmentor.io/profile/kwngptrl" target="_blank">Wannacode</a>.
-      </p>
+      </div>
     </footer>
   </div>
 </body>

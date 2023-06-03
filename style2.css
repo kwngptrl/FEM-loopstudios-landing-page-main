@@ -16,7 +16,10 @@
 
     --section-separator: 3rem;
 
-    --magic-margin: clamp(1.5rem, -8.2143rem + 20.2381vw, 10rem);
+    /* --magic-margin: clamp(1.5rem, -8.2143rem + 20.2381vw, 10rem); */
+
+    /* minvw: 375px, maxvw: 1920, minfs: 1.5rem, maxfs:10rem */
+    --magic-margin: clamp(1.5rem, -0.5631rem + 8.8026vw, 10rem);
 }
 
 html {
@@ -53,6 +56,10 @@ body {
     grid-area: 1 / -1;
 }
 
+/* .hero-image {
+    width: 100%;
+}
+ */
 @media screen and (min-width: 768px) and (max-width: 1350px) {
     /* stops the hero image from shrinking too much and other elements colliding with each other */
     .container-hero-nav > picture > img {
@@ -88,7 +95,12 @@ body {
 
     border: 3px solid var(--neutral-white);
     /* following padding causes overflow */
-    /* padding: clamp(2rem, 1.4681rem + 1.7021vw, 3rem) clamp(2rem, 2.266rem + -0.8511vw, 1.5rem); */
+    /* first clamp: minwp: 375, maxvp: 1920, minfs:2, maxfs:3 */
+    /* second clamp: minwp: 375, maxvp: 1920, minfs:2, maxfs:1.5 */
+    /* padding: clamp(2rem, 1.7573rem + 1.0356vw, 3rem) clamp(2rem, 2.1214rem + -0.5178vw, 1.5rem); */
+    /* padding-inline: clamp(2rem, 2.1214rem + -0.5178vw, 1.5rem); */
+    padding-inline: 3rem;
+    padding-block: 3rem;
 }
 
 .navbar {
@@ -128,8 +140,8 @@ body {
 .navigation-container {
     /* flex here is actually for desktop mode*/
     /* display: block; */
-    display: none;
-    flex-direction: column;
+    display: flex;
+    /* flex-direction: column; */
     /* justify-content: center;
     align-content: center; */
     gap: 2rem;
@@ -154,22 +166,13 @@ body {
         /* position: absolute; */
         
         position: fixed;
+        overflow-y: auto;
         z-index: 110;    /* should be higher than the dark-overlay */
         /* inset-inline: 0 -22px; */   /* left-right */
         inset-inline: auto 0;
         inset-block: 55px auto;     /* top-bottom */
         
-        
-        
-        
-        display: flex;
-        /* z-index: 0; */
-        /* inset-inline: 30% 0; */
-        /* inset-inline: 0; */   /* covers entire screen */
-        /* inset-block: 54px 0; */    /* was both 0 */
-        /* padding: min(20rem, 15vh) 2rem;
-        margin: 0;
-        flex-direction: column; */
+        flex-direction: column; 
         /* transform: translateX(100%); */
         /* scrolls down */
         /* without width & height in viewport units, container doesn't occupy whole screen */
@@ -216,7 +219,7 @@ body {
 .description {
     /* for the container, for viewports < 768px*/
     /* commenting the below as it's causing overflowing with image-tile(!) */
-    /* margin-inline: var(--magic-margin); */
+    margin-inline: 1.5rem;
     margin-block-end: var(--section-separator);
     position: relative;
 
@@ -224,35 +227,62 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3rem;
 }
 
 .description-text-block {
-    position: relative;
 }
 
 
 .description-text-block {
     /* this is mostly based on max viewport */
     /* max-width: 730px; */
-    background-color: aqua;
-    padding: 5rem;
+    background-color: white;
+    /* padding: 3rem; */
+    /* minvw: 375px, maxvw: 1440, minfs: 3rem, maxfs: 5rem */
+    /* padding: clamp(3rem, 2.2958rem + 3.0047vw, 5rem); */
+
+    /* padding: clamp(2.5rem, 1.6197rem + 3.7559vw, 5rem); */
+
+    /* minvw: 375px, maxvw: 1440, minfs: .5rem, maxfs: 5rem */
+    padding: clamp(0.5rem, -1.0845rem + 6.7606vw, 5rem);
     
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-
-    /* position: absolute; */
-    /* bottom: 3rem;
+    
+    position: relative;
+    /* position: absolute;
+    bottom: 3rem;
     right: 0; */
+}
+
+.image-tile h2,
+.description-text-block h2 {
+    /* width: clamp(20rem, 12.0213rem + 25.5319vw, 35rem); */
+    /* width: clamp(18.75rem, 13.7324rem + 21.4085vw, 33rem); */
+
+    /* minvw: 375px, maxvw: 1440, minfs: 300px, maxfs: 25rem */
+    /* width: clamp(18.75rem, 16.5493rem + 9.3897vw, 25rem); */
+
+    /* minvw: 375px, maxvw: 1920, minfs: 25rem, maxfs: 30rem */
+    /* width: clamp(25rem, 23.7864rem + 5.178vw, 30rem); */
+
+    
 }
 
 .description-text-block h2,
 .image-tile h2 {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: clamp(2rem, 1.734rem + 0.8511vw, 2.5rem);
+    /* font-size: clamp(2rem, 1.734rem + 0.8511vw, 2.5rem); */
+    
+    /* minvw: 375px, maxvw: 1440, minfs: 2.4rem, maxfs: 3.2rem */
+    /* font-size: clamp(2.4rem, 2.2058rem + 0.8285vw, 3.2rem); */
+    /* minvw: 375px, maxvw: 1440, minfs: 2.2rem, maxfs: 3.2rem */
+    font-size: clamp(2.2rem, 1.8479rem + 1.5023vw, 3.2rem);
     text-transform: uppercase;
-    max-width: 33rem;
+    max-width: 30rem;
 
     /* commenting out these lines as it's causing overflow */
     /* width: clamp(20rem, 14.6809rem + 17.0213vw, 33rem); */
@@ -260,9 +290,10 @@ body {
     line-height: 1.05;
 }
 
+
 .description-text-block p {
     color: var(--neutral-very-dark-gray);
-    
+    max-width: 33rem;
     /* width: 20rem; */
     /* width: clamp(20rem, 12.0213rem + 25.5319vw, 35rem); */
 
@@ -324,18 +355,21 @@ body {
     outline: 2px solid crimson;    
 }
 
-.loopstudios-creations a picture {
-    display: grid;
+.loopstudios-creations a figure {
+    /* display: grid; */
     position: relative;
+    display: inline-block;
 }
 
-.image-actual,
 .title {
     /* places img and span in same place/area */
-    grid-area: 1 / -1;
+    /* grid-area: 1 / -1; */
+    /* grid-column: 1 / -1;
+    grid-row: 1 / 3; */
     /* even if commented out, 'position: absolute' below works
         because it's under code block with '.loopstudios-creations a picture' */
     /* position: relative; */
+    /* padding: 5rem 1rem 1rem; */
 }
 
 .loopstudios-creations > a:hover .image-actual {
@@ -347,8 +381,12 @@ body {
     font-weight: bold;
 }
 
-picture > .title {
-    align-self: end;
+/* picture >  */.title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* align-self: end; */
     padding-inline-start: 1.5rem;
     padding-block-end: 1.5rem;
 
@@ -362,7 +400,7 @@ picture > .title {
     z-index: 2;
 }
 
-.loopstudios-creations > a > picture::before {
+.loopstudios-creations > a > figure > picture::before {
     content: '';
     /* absolute here is required, but relative above (~ ln 272) is not! */
     position: absolute;
@@ -433,6 +471,14 @@ footer {
     gap: 1.5rem;
 }
 
+/* to make icons 'same size' */
+/* from: https://www.smashingmagazine.com/2021/10/object-fit-background-size-css/ */
+.social-media-links > li > a > img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
 .copyright {
     color: var(--neutral-dark-gray);
     white-space: nowrap;
@@ -448,7 +494,11 @@ footer {
     transition: transform 200ms ease-in-out;
 }
 
-.attribution { font-size: 11px; text-align: center; background-color: var(--neutral-white);}
+.attribution { font-size: 11px;
+    text-align: center;
+    background-color: var(--neutral-white);
+}
+
 .attribution a { color: hsl(228, 45%, 44%); }
 
 .hidden {
@@ -468,19 +518,24 @@ footer {
     }
 
     .hero-text {
-        max-width: 38   rem;   
+        max-width: 38rem;   
     }
 
     .navigation-container {
         display: flex;
-        flex-direction: row;  /* commenting out since it works fine without it (it's the default) */
+        /* flex-direction: row; */  /* commenting out since it works fine without it (it's the default) */
         /* margin-block: .75rem; */ /* commenting out since it works fine without it */
         column-gap: max(1rem, 2vw);
+        margin-block-start: .4rem;
     }
 
     .mobile-nav-toggle {
         display: none;
     }   
+
+    .description {
+        margin-inline: var(--magic-margin);
+    }
 
     
     .image-tile {
@@ -499,7 +554,7 @@ footer {
     }
 
     .image-tile h2 {
-        margin-bottom: -.2rem;
+        margin-bottom: -.5rem;
         text-align: start;
     }
 
@@ -508,7 +563,7 @@ footer {
         place-self: center end;
     }
 
-    .loopstudios-creations > a > picture::before {
+    .loopstudios-creations > a > figure > picture::before {
     /* content: '';
     position: absolute; */
     inset: 30% 0 0 0;
@@ -551,9 +606,14 @@ footer {
         justify-self: end;
     }
     
-    .logo,
+    /* .logo,
     .social-media-links {
         align-self: baseline;
+    } */
+
+    .footer-menu-container > .logo {
+        align-self: end;
+        margin-block-end: .5rem;
     }
     
     .footer-menu {
@@ -562,6 +622,40 @@ footer {
         
         flex-direction: row;
     }
+
+    /* start of underline hover animation */
+    /* borrowed from: https://www.youtube.com/watch?v=gGySLNda00s */
+
+    /* for navigation-container, may require adjusting vertical-alignment */
+    .navigation-container li a::after,
+    .footer-menu li a::after,
+    .social-media-links li a::after {
+        content: '';
+        width: 0;
+        height: 3px;
+        background-color: var(--neutral-white);
+        /* one can try margin-left or margin-right to see effect */
+        /* 'auto' here causes bar to grow from center */
+        margin: auto;
+        /* margin-top: 8px; */
+        margin-block-start: .4rem;
+        display: block;
+    }
+
+    .navigation-container li a:hover::after,
+    .footer-menu li a:hover::after,
+    .social-media-links li a:hover::after {
+        --bar-width: 60%;
+        width: var(--bar-width);
+        transition: width 150ms linear;
+    }
+
+    .social-media-links li a:hover::after {
+        --bar-width: 100%;
+    }
+
+    /* end of underline hover animation */
+
 }
 
 @media screen and (min-width: 1000px) {
@@ -579,6 +673,8 @@ footer {
         position: absolute;
         bottom: 0;
         right: -5rem;
+
+        align-items: start;
     }
     
     .description-text-block h2, p,

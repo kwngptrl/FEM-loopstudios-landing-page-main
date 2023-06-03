@@ -11,7 +11,9 @@
 
 * {
     margin: 0;
-    outline: 1px red solid;
+    padding: 0;
+    /* outline: 1px red solid; */
+    /* overflow: scroll; */
 }
 
 /*  in the browser's responsive 'device toolbar'
@@ -25,15 +27,17 @@ body {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+
 }
+
 
 img,
 picture,
 video,
 canvas,
 svg {
-    display: block;
     max-width: 100%;
+    display: block; 
 }
 
 input,
@@ -70,7 +74,8 @@ h6 {
     height: 100%;
     width: 100%;
     z-index: 100;
-    background-color: rgba(0, 0, 0, 50%);
+    /* background-color: rgba(0, 0, 0, 50%); */
+    background-color: rgba(0, 0, 0, 100%);
 }
 
 .overflow-hidden {

@@ -1,14 +1,15 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
-
+/* this is the same as style3.css but with modifications. This time I'll be using transform: scaleY() */
 :root {
+    /* direction: rtl; */
     /* neutral */
     --neutral-white: hsl(0, 0%, 100%);
     --neutral-dark-gray: hsl(0, 0%, 55%);
     --neutral-very-dark-gray: hsl(0, 0%, 41%);
     --neutral-black: hsl(0, 0%, 0%);
 
-    --neutral-almost-black-shadow: hsl(0, 0%, 8%, 0.3);
+    --neutral-almost-black-shadow: hsl(0, 0%, 8%, 0.5);
 
     /* font body-copy */
     --fs-body-copy: 15px;
@@ -36,7 +37,7 @@ body {
     min-height: 100vh;
     display: grid;
     grid-auto-rows: auto 1fr auto;
-    
+    /* gap: 1rem; */
     gap: 5rem;
 }
 
@@ -45,20 +46,10 @@ body {
     grid-auto-rows: auto 1fr;
 
     margin-block-end: var(--section-separator);
-    position: relative;
 }
 
 .container-hero-nav picture {
     grid-area: 1 / -1;
-    position: relative;
-}
-
-
-.container-hero-nav picture::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--neutral-almost-black-shadow);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1350px) {
@@ -78,59 +69,48 @@ body {
     }
 }
 
-.mask {
-    overflow: hidden;
-}
-
 .hero-text--container {
     grid-area: 1 / -1;
     place-self: center;
+    margin-inline: 1.5rem;
 }
 
 .hero-text {
     color: var(--neutral-white);
     font-family: 'Josefin Sans', sans-serif;
-    /* clamp calculation: minwp: 375, maxvp: 1920, minfs:2.5, maxfs:5 */
-    font-size: clamp(2.5rem, 1.8932rem + 2.589vw, 5rem);
-    font-weight: 100;
-    letter-spacing: .1rem;
+    /* clamp calculation: minwp: 375, maxvp: 1920, minfs:3, maxfs:4 */
+    /* font-size: clamp(3rem, 2.6479rem + 1.5023vw, 4rem); */
+    /* clamp calculation: minwp: 375, maxvp: 1920, minfs:2.5, maxfs:4 */
+    font-size: clamp(2.5rem, 2.1359rem + 1.5534vw, 4rem);
     text-transform: uppercase;
-    /* max-width: 24rem; */
-    /* clamp calculation: minwp: 375, maxvp: 1920, minfs:24, maxfs:45 */
-    max-width: clamp(24rem, 18.9029rem + 21.7476vw, 45rem);
+    max-width: 24rem;
     line-height: 1;
     text-align: start;
 
     border: 3px solid var(--neutral-white);
+    /* padding-inline: clamp(2rem, 2.1214rem + -0.5178vw, 1.5rem); */
+
     /* min() works here, but pair it with max-width: 24rem so text doesn't get cut off */
     padding-inline: min(7%, 3rem);
     padding-block: min(6%, 2.5rem);
-
-    transform: scale(0);    
-    /* animation: slideIn 1.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; */
-    animation-name: zoomIn;
-    animation-duration: 1.7s;
-    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-    animation-delay: 500ms;
-    animation-fill-mode: forwards;
-}
-
-@keyframes zoomIn {
-    to {
-        transform: scale(100%);
-    }
 }
 
 .navbar {
+    /* margin-inline: var(--magic-margin); */
+    /* changing to padding so background to black will show */
     padding-inline: var(--magic-margin);
     grid-column: 1 / -1;
     grid-row: 1 / 2;
-     
+    /* spacing from the top */
+    /* margin-block-start: 1.5rem; */
+    /* changing to padding so background to black will show */
     padding-block-start: 1.5rem;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* places navbar at the top */
+    /* height: fit-content; */
     height: 54px;
     background-color: var(--neutral-black);
 
@@ -143,9 +123,11 @@ body {
 
 .nav-items {
     display: flex;
+    /* position: relative; */
 }
 
 .navigation-container {
+    /* flex here will apply also for desktop mode*/
     display: flex;
     gap: 2rem;
     list-style: none;
@@ -170,12 +152,16 @@ body {
         inset-block: 54px auto;
         
         flex-direction: column;
+        /* without width & height in viewport units, container doesn't occupy whole screen */
         width: 100vw;
+        /* width: calc(100vw - 17px); */    /* leaves a 17px column on the left, which for this project, you can see the overlay beneath */
         height: 100vh;
         padding-inline: var(--magic-margin);
         padding-block: min(20rem, 15vh);
         background-color: var(--neutral-black);
+        /* this makes the menu drop from the navbar */
         transform-origin: top center;
+        /* this 'hides' the list */
         transform: scaleY(0);   
     }
 }
@@ -191,7 +177,10 @@ body {
 }
 
 .mobile-nav-toggle[aria-expanded="true"]{
+    /* z-index: 120; */
     background-image: url('./images/icon-close.svg');
+    /* -moz-transition: background-image 100ms, z-index 200ms 250ms;
+    transition: background-image 100ms, z-index 200ms 250ms; */
     transition: background-image 200ms;
 }
 
@@ -219,7 +208,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;    
+    gap: 2rem;
+    
+    /* position: relative; */
 }
 
 .description-text-block h2,
@@ -229,7 +220,6 @@ body {
     font-size: clamp(2.2rem, 1.8479rem + 1.5023vw, 3.2rem);
     text-transform: uppercase;
     max-width: 30rem;
-    width: 100%;
     line-height: 1.05;
 }
 
@@ -237,8 +227,7 @@ body {
 .description-text-block p {
     color: var(--neutral-very-dark-gray);
     max-width: 33rem;
-    font-size: 1.08rem;
-    line-height: 1.7;
+    font-size: 17px;
 }
 
 .description-text-block h2, p,
@@ -249,7 +238,8 @@ body {
 .image-tile {
     margin-inline: var(--magic-margin);
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 3rem;
 
@@ -263,9 +253,7 @@ body {
     font-weight: bold;
     letter-spacing: .25rem;
     text-transform: uppercase;
-
-    display: inline-block;
-    justify-self: center;    
+        
     padding: .8rem 2.5rem .5rem;
     border: 1px solid var(--neutral-black);
     text-decoration: none;
@@ -284,6 +272,7 @@ body {
 
 .loopstudios-creations a {
     text-decoration: none;
+    /* if next line doesn't exist, overlay doesn't align */
     justify-self: center;
 }
 
@@ -293,6 +282,7 @@ body {
 
 .loopstudios-creations a figure {
     position: relative;
+    /* display: inline-block; */ /* eliminated this because of extra space underneath the image */
 }
 
 .loopstudios-creations a:hover .image-actual {
@@ -306,6 +296,9 @@ body {
 
 .project-title {
     position: absolute;
+    /* bottom: 0;
+    left: 0;
+    right: 0; */
     inset-block: auto 0;
     inset-inline: 0;
     
@@ -322,10 +315,13 @@ body {
     z-index: 2;
 }
 
+/* .loopstudios-creations > a > figure > picture::before */
 .loopstudios-creations a figure picture::before {
     content: '';
+    /* absolute here is tied to the '..loopstudios-creations a figure' above */
     position: absolute;
     inset: 0 10% 0 0;
+    /* can assign 'to left' as a variable */
     --direction: 270deg;
     background-image: linear-gradient(
         var(--direction),
@@ -343,6 +339,7 @@ body {
 }
 
 .loopstudios-creations a:hover picture::before {
+    /* so that overlay linear-gradient will not be seen on hover */
     background-image: none;
 }
 
@@ -407,11 +404,9 @@ footer {
     transition: transform 100ms ease-in-out;
 }
 
-.attribution {
-    font-size: 11px;
+.attribution { font-size: 11px;
     text-align: center;
     background-color: var(--neutral-white);
-    width: 100%;
 }
 
 .attribution a { color: hsl(228, 45%, 44%); }
@@ -428,13 +423,16 @@ footer {
 
     .hero-text--container {
         justify-self: unset;
+        /* line above removed setting in order for next line to work */
         margin-inline-start: var(--magic-margin);
-        position: absolute;
-        top: 60%;
-        transform: translate(0, -50%);
+    }
+
+    .hero-text {
+        max-width: 30rem;   
     }
 
     .navigation-container {
+        /* display: flex; */    /* already defined above */
         column-gap: max(1rem, 2vw);
         margin-block-start: .4rem;
     }
@@ -457,6 +455,8 @@ footer {
     .image-tile > a {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
+        /* also the same as */
+        /* grid-area: 1 / 1 / 2 / 2; */
         margin-block-end: 1rem;
     }
 
@@ -465,9 +465,9 @@ footer {
         text-align: start;
     }
 
-    .image-tile .see-all {
+    .image-tile > a {
         font-weight: bold;
-        margin-inline-start: auto;
+        place-self: center end;
     }
 
     .loopstudios-creations a figure picture::before {
@@ -492,6 +492,7 @@ footer {
         height: auto;
     }
 
+    /* .logo, */
     .social-media-links {
         padding: 0;
     }
@@ -509,16 +510,28 @@ footer {
         column-gap: max(1rem, 2vw);
     }
 
+    /* start of underline hover animation */
+    /* borrowed from: https://www.youtube.com/watch?v=gGySLNda00s */
+
+    /* for navigation-container, may require adjusting vertical-alignment */
+    /*  .navigation-container li a::after,
+        .footer-menu li a::after,
+        .social-media-links li a::after     */ 
     :where(.navigation-container, .footer-menu, .social-media-links ) li a::after {
         content: '';
         width: 0;
         height: 3px;
         background-color: var(--neutral-white);
+        /* one can try margin-left or margin-right to see effect */
+        /* 'auto' here causes bar to grow from center */
         margin: auto;
         margin-block-start: .3rem;
         display: block;
     }
 
+    /*  .navigation-container li a:hover::after,
+        .footer-menu li a:hover::after,
+        .social-media-links li a:hover::after   */ 
     :where(.navigation-container, .footer-menu, .social-media-links ) li a:hover::after {
         --bar-width: 60%;
         width: var(--bar-width);
@@ -529,9 +542,15 @@ footer {
         --bar-width: 100%;
     }
 
+    /* end of underline hover animation */
+
 }
 
 @media screen and (min-width: 1000px) {
+
+    .hero-text {
+        max-width: 35rem;   
+    }
 
     .description {
         display: block;
