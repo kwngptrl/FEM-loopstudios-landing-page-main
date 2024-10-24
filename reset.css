@@ -7,12 +7,12 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    /* outline: 1px red solid; */
 }
 
 * {
     margin: 0;
     padding: 0;
-    /* outline: 1px red solid; */
     /* overflow: scroll; */
 }
 
